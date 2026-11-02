@@ -1,0 +1,22 @@
+# Fichiers temporaires et système
+.DS_Store
+Thumbs.db
+desktop.ini
+*$*
+~$*
+
+# Dépendances et caches
+node_modules/
+.npm/
+.netlify/
+
+# Journaux et logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo

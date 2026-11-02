@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merlin SIMO — Intelligence, Créativité & Innovation</title>
+    <meta name="description" content="Site éditorial de Merlin SIMO. Développement de l'intelligence, de la créativité, de l'apprentissage et du passage à l'action. « La créativité n'est pas un don. C'est une pratique. »">
+    
+    <!-- Open Graph / Meta -->
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://merlinsimo.com/">
+    
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Merlin SIMO — L'Atelier de l'Esprit">
+    <meta property="og:url" content="https://merlinsimo.com/">
+    <meta property="og:title" content="Merlin SIMO — L'Atelier de l'Esprit | Intelligence, Créativité & Action">
+    <meta property="og:description" content="Plateforme éditoriale de Merlin SIMO : Explorer l'intelligence humaine, développer ses capacités cognitives et transformer ses idées en réalisations concrètes.">
+    <meta property="og:image" content="https://merlinsimo.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Logo L'Atelier de l'Esprit — Merlin SIMO">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://merlinsimo.com/">
+    <meta name="twitter:title" content="Merlin SIMO — L'Atelier de l'Esprit">
+    <meta name="twitter:description" content="Explorer l'intelligence humaine. Développer ses capacités. Transformer ses idées en réalisations.">
+    <meta name="twitter:image" content="https://merlinsimo.com/images/og-image.jpg">
+    
+    <!-- Favicons & App Icons (Google Search Certified) -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#00bac7">
+
+    <!-- Structured Data: Schema.org (Google Search Knowledge Graph & Site Search) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://merlinsimo.com/#organization",
+          "name": "L'Atelier de l'Esprit",
+          "alternateName": "Merlin SIMO",
+          "url": "https://merlinsimo.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "@id": "https://merlinsimo.com/#logo",
+            "url": "https://merlinsimo.com/images/logo-512.png",
+            "contentUrl": "https://merlinsimo.com/images/logo-512.png",
+            "caption": "Logo L'Atelier de l'Esprit — Merlin SIMO",
+            "width": 512,
+            "height": 512
+          },
+          "image": "https://merlinsimo.com/images/logo-512.png",
+          "founder": {
+            "@type": "Person",
+            "@id": "https://merlinsimo.com/#person",
+            "name": "Merlin SIMO",
+            "jobTitle": "Auteur, Chercheur en dynamiques cognitives & Développeur",
+            "email": "merlinsimo2.0@gmail.com",
+            "telephone": "+237683911717",
+            "image": "https://merlinsimo.com/images/merlin-simo-portrait.jpg"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+237683911717",
+            "contactType": "customer service",
+            "email": "merlinsimo2.0@gmail.com",
+            "availableLanguage": ["French", "English"]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://merlinsimo.com/#website",
+          "url": "https://merlinsimo.com/",
+          "name": "Merlin SIMO — L'Atelier de l'Esprit",
+          "description": "Plateforme éditoriale consacrée à l'autonomie intellectuelle, à la pensée créative méthodique, aux neurosciences appliquées et au passage à l'action.",
+          "publisher": { "@id": "https://merlinsimo.com/#organization" },
+          "inLanguage": "fr-FR"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css?v=14.0">
+</head>
+<body>
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="header__logo"><img src="images/logo-transparent.png" alt="Emblème Merlin SIMO — L'Atelier de l'Esprit" class="header__logo-img"> Merlin <span>SIMO</span></a>
+            <nav class="nav" aria-label="Navigation principale">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link nav__link--active">Accueil</a></li>
+                    <li class="nav__item"><a href="articles.html" class="nav__link">Articles</a></li>
+                    <li class="nav__item"><a href="boutique.html" class="nav__link">Boutique</a></li>
+                    <li class="nav__item"><a href="a-propos.html" class="nav__link">À propos</a></li>
+                    <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" aria-label="Menu mobile" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="container hero__inner">
+            <span class="card__category card__category--gold" style="margin-bottom: var(--space-md); letter-spacing: 0.1em;">RÉFLEXION • CRÉATION • ACTION</span>
+            <h1 class="hero__title">Penser avec clarté.<br><span class="text-gradient">Créer avec audace.</span></h1>
+            <div class="hero__tagline-wrapper">
+                <p class="hero__tagline">« La créativité n'est pas un don. C'est une pratique. »</p>
+            </div>
+            <p class="hero__promise">J'aide les esprits curieux, les créateurs et les professionnels à développer leurs facultés cognitives, à structurer leurs idées et à transformer leur curiosité en réalisations tangibles.</p>
+            <div class="hero__cta">
+                <a href="articles.html" class="btn btn--primary">Explorer les articles</a>
+                <a href="boutique.html" class="btn btn--secondary">Découvrir la boutique</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content & Two-Column Layout -->
+    <main class="main-content">
+        <div class="container two-col" style="padding-top: var(--space-3xl); padding-bottom: var(--space-3xl);">
+            
+            <!-- Left Main Content (~70%) -->
+            <div class="content-left">
+                
+                <!-- Section: Domaines d'exploration -->
+                <section class="section" style="padding-top: 0;">
+                    <h2 class="section__title">Domaines d'exploration</h2>
+                    <p style="color: var(--text-medium); margin-bottom: var(--space-xl); font-size: var(--fs-md);">
+                        Une approche interdisciplinaire reliant la psychologie cognitive, les sciences de l'apprentissage, l'innovation pragmatique et les technologies au service de l'humain.
+                    </p>
+                    <div class="grid-cards grid-cards--3">
+                        <div class="feature-card">
+                            <span class="feature-card__icon">💡</span>
+                            <h3 class="feature-card__title">Créativité & Idéation</h3>
+                            <p class="feature-card__desc">Méthodes pour produire des idées neuves à volonté et briser définitivement les blocages mentaux.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-card__icon">🧠</span>
+                            <h3 class="feature-card__title">Apprentissage Accéléré</h3>
+                            <p class="feature-card__desc">Techniques de mémorisation durable, prise de notes réflexive et assimilation rapide des savoirs complexes.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-card__icon">⚡</span>
+                            <h3 class="feature-card__title">Passage à l'Action</h3>
+                            <p class="feature-card__desc">L'art de prototyper vite, de surmonter la peur du jugement et d'accoucher de versions imparfaites mais réelles.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-card__icon">🔍</span>
+                            <h3 class="feature-card__title">Esprit Critique & Rigueur</h3>
+                            <p class="feature-card__desc">Déjouer les biais cognitifs, questionner en profondeur et construire des modèles mentaux solides.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-card__icon">🌐</span>
+                            <h3 class="feature-card__title">IA Responsable</h3>
+                            <p class="feature-card__desc">Mettre l'intelligence artificielle au service de l'amplification humaine sans abdiquer son jugement critique.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-card__icon">🎯</span>
+                            <h3 class="feature-card__title">Focus & Clarté</h3>
+                            <p class="feature-card__desc">Protéger son attention dans l'économie de la distraction et sanctuariser du temps pour la pensée profonde.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: Derniers Articles -->
+                <section class="section">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: var(--space-xl); flex-wrap: wrap; gap: var(--space-md);">
+                        <div>
+                            <h2 class="section__title" style="margin-bottom: var(--space-xs);">Derniers Essais & Guides</h2>
+                            <p style="color: var(--text-medium); font-size: var(--fs-sm);">Des réflexions substantielles et immédiatement applicables.</p>
+                        </div>
+                        <a href="articles.html" style="font-family: var(--font-heading); font-weight: var(--fw-bold); color: var(--electric-blue); font-size: var(--fs-sm);">Voir les 20 articles →</a>
+                    </div>
+
+                    <div class="grid-cards">
+                        <!-- Card 1 -->
+                        <article class="card">
+                            <div class="card__body">
+                                <span class="card__category">Créativité</span>
+                                <h3 class="card__title">
+                                    <a href="articles/retrouver-creativite-bloque.html">Comment retrouver sa créativité quand on se sent bloqué</a>
+                                </h3>
+                                <p class="card__excerpt">Les causes profondes du blocage mental, de l'hyper-stimulation au perfectionnisme toxique, et 7 exercices concrets pour relancer le flux créatif.</p>
+                                <div class="card__meta">
+                                    <time datetime="2026-10-28">28 oct. 2026</time>
+                                    <span class="reading-time">10 min de lecture</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 -->
+                        <article class="card">
+                            <div class="card__body">
+                                <span class="card__category card__category--coral">Idéation</span>
+                                <h3 class="card__title">
+                                    <a href="articles/produire-idees-sans-inspiration.html">L'art de produire des idées sans attendre l'inspiration</a>
+                                </h3>
+                                <p class="card__excerpt">Pourquoi attendre la muse est un piège. Découvrez les protocoles systématiques d'idéation utilisés par les plus grands inventeurs.</p>
+                                <div class="card__meta">
+                                    <time datetime="2026-10-24">24 oct. 2026</time>
+                                    <span class="reading-time">9 min de lecture</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 -->
+                        <article class="card">
+                            <div class="card__body">
+                                <span class="card__category">Habitudes</span>
+                                <h3 class="card__title">
+                                    <a href="articles/habitudes-esprits-creatifs.html">Les habitudes quotidiennes des esprits les plus créatifs</a>
+                                </h3>
+                                <p class="card__excerpt">De Darwin à Poincaré, analyse des rituels quotidiens, des temps de marche et des systèmes de repos délibéré qui nourrissent l'illumination.</p>
+                                <div class="card__meta">
+                                    <time datetime="2026-10-20">20 oct. 2026</time>
+                                    <span class="reading-time">11 min de lecture</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 4 -->
+                        <article class="card">
+                            <div class="card__body">
+                                <span class="card__category card__category--gold">Apprentissage</span>
+                                <h3 class="card__title">
+                                    <a href="articles/apprendre-plus-vite-retenir.html">Comment apprendre plus vite et retenir durablement</a>
+                                </h3>
+                                <p class="card__excerpt">Répétition espacée, interrogation élaborative et technique de Feynman : les méthodes scientifiquement validées contre l'illusion de compétence.</p>
+                                <div class="card__meta">
+                                    <time datetime="2026-10-16">16 oct. 2026</time>
+                                    <span class="reading-time">12 min de lecture</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 5 -->
+                        <article class="card">
+                            <div class="card__body">
+                                <span class="card__category card__category--coral">Action</span>
+                                <h3 class="card__title">
+                                    <a href="articles/curiosite-projet-concret.html">Transformer une simple curiosité en projet concret</a>
+                                </h3>
+                                <p class="card__excerpt">Le cheminement méthodique de l'étincelle intellectuelle au premier prototype fonctionnel grâce à la règle des 72 heures.</p>
+                                <div class="card__meta">
+                                    <time datetime="2026-10-12">12 oct. 2026</time>
+                                    <span class="reading-time">10 min de lecture</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 6 -->
+                        <article class="card">
+                            <div class="card__body">
+                                <span class="card__category">Style & Voix</span>
+                                <h3 class="card__title">
+                                    <a href="articles/identite-creative-assumer-style.html">Développer une identité créative et assumer son style</a>
+                                </h3>
+                                <p class="card__excerpt">Comment identifier ses obsessions fondamentales, transcender ses influences et assumer la singularité de sa propre signature.</p>
+                                <div class="card__meta">
+                                    <time datetime="2026-08-26">26 août 2026</time>
+                                    <span class="reading-time">10 min de lecture</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                                <!-- Section: Boutique Preview -->
+                <section class="section">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: var(--space-xl); flex-wrap: wrap; gap: var(--space-md);">
+                        <div>
+                            <h2 class="section__title" style="margin-bottom: var(--space-xs);">Programmes & Livres de Merlin SIMO</h2>
+                            <p style="color: var(--text-medium); font-size: var(--fs-sm);">Des systèmes concrets basés sur les neurosciences pour libérer le potentiel d'apprentissage et de mémoire.</p>
+                        </div>
+                        <a href="boutique.html" style="font-family: var(--font-heading); font-weight: var(--fw-bold); color: var(--electric-blue); font-size: var(--fs-sm);">Consulter la boutique complète →</a>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-xl);">
+                        
+                        <!-- Product 1 -->
+                        <article class="product-horizontal">
+                            <div class="product-horizontal__img-wrap">
+                                <img src="images/eveillez-le-genie-de-votre-enfant.jpg" alt="Livre Éveillez le Génie de votre Enfant" class="product-horizontal__cover" loading="lazy">
+                            </div>
+                            <div class="product-horizontal__content">
+                                <span class="card__category card__category--gold" style="align-self: flex-start; margin-bottom: var(--space-xs);">Édition Panafricaine Prestige</span>
+                                <h3 style="font-size: var(--fs-lg); color: var(--text-dark); margin-bottom: 0.25rem;">
+                                    <a href="boutique.html#eveillez-genie-enfant">Éveillez le Génie de votre Enfant</a>
+                                </h3>
+                                <p style="font-family: var(--font-heading); font-size: var(--fs-xs); font-weight: var(--fw-bold); color: var(--coral); margin-bottom: var(--space-sm);">
+                                    La méthode ÉCLAT de 15 minutes par jour pour apprendre, s'exprimer et grandir avec confiance
+                                </p>
+                                <p class="card__excerpt" style="font-size: var(--fs-sm); color: var(--text-medium); margin-bottom: var(--space-md);">
+                                    Un enfant épanoui aujourd'hui, un avenir meilleur demain ! Le protocole quotidien en 5 leviers (Écouter, Créer, Lire & parler, Apprendre par le jeu, Transformer en habitudes) pour révéler le génie de vos enfants sans pression.
+                                </p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md); margin-top: auto; border-top: 1px solid var(--border); padding-top: var(--space-md);">
+                                    <a href="https://selar.com/l11bp7g11v" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">
+                                        Commander sur Selar →
+                                    </a>
+                                    <a href="boutique.html#eveillez-genie-enfant" style="font-size: var(--fs-xs); font-weight: var(--fw-bold); color: var(--electric-blue);">
+                                        En savoir plus ›
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Product 2 -->
+                        <article class="product-horizontal">
+                            <div class="product-horizontal__img-wrap">
+                                <img src="images/boostez-votre-memoire-en-8-jours.jpg" alt="Livre Boostez votre Mémoire en 8 Jours" class="product-horizontal__cover" loading="lazy">
+                            </div>
+                            <div class="product-horizontal__content">
+                                <span class="card__category card__category--gold" style="align-self: flex-start; margin-bottom: var(--space-xs);">Collection Performance & Neurosciences</span>
+                                <h3 style="font-size: var(--fs-lg); color: var(--text-dark); margin-bottom: 0.25rem;">
+                                    <a href="boutique.html#boostez-votre-memoire">Boostez votre Mémoire en 8 Jours</a>
+                                </h3>
+                                <p style="font-family: var(--font-heading); font-size: var(--fs-xs); font-weight: var(--fw-bold); color: var(--electric-blue); margin-bottom: var(--space-sm);">
+                                    Le système pratique pour apprendre plus vite, retenir plus longtemps et ne plus oublier l'essentiel
+                                </p>
+                                <p class="card__excerpt" style="font-size: var(--fs-sm); color: var(--text-medium); margin-bottom: var(--space-md);">
+                                    Un cerveau plus fort pour un meilleur demain ! 8 jours d'entraînement méthodique (15 minutes par jour) articulés autour de 4 piliers majeurs : Concentration, Méthodes, Mémorisation et Réussite.
+                                </p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md); margin-top: auto; border-top: 1px solid var(--border); padding-top: var(--space-md);">
+                                    <a href="https://selar.com/0674970777" target="_blank" rel="noopener noreferrer" class="btn btn--gold btn--sm">
+                                        Commander sur Selar →
+                                    </a>
+                                    <a href="boutique.html#boostez-votre-memoire" style="font-size: var(--fs-xs); font-weight: var(--fw-bold); color: var(--electric-blue);">
+                                        En savoir plus ›
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Product 3 -->
+                        <article class="product-horizontal" style="border: 1.5px solid var(--coral);">
+                            <div class="product-horizontal__img-wrap">
+                                <img src="images/mon-enfant-reussit-pack-3-en-1.jpg" alt="Mon Enfant Réussit Pack Complet 3 en 1" class="product-horizontal__cover" loading="lazy">
+                            </div>
+                            <div class="product-horizontal__content">
+                                <span class="card__category card__category--coral" style="align-self: flex-start; margin-bottom: var(--space-xs);">Pack Complet 3 en 1</span>
+                                <h3 style="font-size: var(--fs-lg); color: var(--text-dark); margin-bottom: 0.25rem;">
+                                    <a href="boutique.html#pack-mon-enfant-reussit">Mon Enfant Réussit — Coffret Prestige</a>
+                                </h3>
+                                <p style="font-family: var(--font-heading); font-size: var(--fs-xs); font-weight: var(--fw-bold); color: var(--coral); margin-bottom: var(--space-sm);">
+                                    Le programme quotidien pour aider votre enfant à apprendre plus vite, mieux mémoriser et progresser à l'école
+                                </p>
+                                <p class="card__excerpt" style="font-size: var(--fs-sm); color: var(--text-medium); margin-bottom: var(--space-md);">
+                                    L'écosystème éducatif ultime : 100 ressources vidéo éducatives (Français, Maths, Sciences, Anglais, Méthodologie) + les 2 livres de référence de Merlin SIMO pour toute la famille.
+                                </p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md); margin-top: auto; border-top: 1px solid var(--border); padding-top: var(--space-md);">
+                                    <a href="https://selar.com/sov955h77r" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm" style="background: var(--coral); border-color: var(--coral);">
+                                        Commander le Pack sur Selar →
+                                    </a>
+                                    <a href="boutique.html#pack-mon-enfant-reussit" style="font-size: var(--fs-xs); font-weight: var(--fw-bold); color: var(--electric-blue);">
+                                        En savoir plus ›
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </section>
+
+                <!-- Section: Appel à l'action éditorial -->
+                <section class="cta-banner">
+                    <h2 class="cta-banner__title">Prêt à développer votre potentiel créatif ?</h2>
+                    <p class="cta-banner__text">La créativité ne se commande pas par miracle, elle se construit par le choix délibéré de s'entraîner chaque jour. Commencez dès maintenant par explorer nos essais et méthodes.</p>
+                    <a href="articles.html" class="btn btn--gold">Lire l'ensemble des articles</a>
+                </section>
+
+            </div>
+
+            <!-- Right Sidebar (~30%) -->
+            <aside class="sidebar">
+                
+                <!-- Mini Profil Card -->
+                <div class="sidebar__block profile-mini">
+                    <img src="images/merlin-simo-portrait.jpg" alt="Merlin SIMO" class="profile-mini__avatar" width="80" height="80">
+                    <h3 class="profile-mini__name">Merlin SIMO</h3>
+                    <p class="profile-mini__bio">Observateur des dynamiques cognitives, bâtisseur de systèmes et praticien de l'apprentissage méthodique.</p>
+                    <div style="display: flex; flex-direction: column; gap: var(--space-xs);">
+                        <a href="a-propos.html" class="btn btn--secondary btn--sm" style="color: var(--midnight-blue); border-color: var(--midnight-blue);">En savoir plus</a>
+                        <a href="https://wa.me/237683911717" target="_blank" rel="noopener noreferrer" class="btn btn--whatsapp btn--sm" style="margin-top: var(--space-xs);">
+                            Direct WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Thématiques & Rubriques -->
+                <div class="sidebar__block">
+                    <h3 class="sidebar__title">Thématiques</h3>
+                    <ul class="sidebar__links">
+                        <li><a href="articles.html?cat=creativite">Créativité & Idéation</a></li>
+                        <li><a href="articles.html?cat=apprentissage">Apprentissage & Mémoire</a></li>
+                        <li><a href="articles.html?cat=innovation">Innovation & Prototypage</a></li>
+                        <li><a href="articles.html?cat=critique">Esprit Critique & Réfutation</a></li>
+                        <li><a href="articles.html?cat=action">Passage à l'Action</a></li>
+                    </ul>
+                </div>
+
+                <!-- Articles Populaires -->
+                <div class="sidebar__block">
+                    <h3 class="sidebar__title">Articles Majeurs</h3>
+                    <ol class="sidebar__popular">
+                        <li><a href="articles/retrouver-creativite-bloque.html">Comment retrouver sa créativité quand on se sent bloqué</a></li>
+                        <li><a href="articles/produire-idees-sans-inspiration.html">L'art de produire des idées sans attendre l'inspiration</a></li>
+                        <li><a href="articles/apprendre-plus-vite-retenir.html">Comment apprendre plus vite et retenir durablement</a></li>
+                        <li><a href="articles/curiosite-projet-concret.html">Transformer une simple curiosité en projet concret</a></li>
+                        <li><a href="articles/vie-creative-plutot-attendre-talent.html">Construire une vie créative plutôt qu'attendre le talent</a></li>
+                    </ol>
+                </div>
+
+                <!-- Contact Direct WhatsApp -->
+                <div class="sidebar__block" style="background: linear-gradient(135deg, rgba(37,211,102,0.1), rgba(37,99,235,0.05)); border-color: rgba(37,211,102,0.3);">
+                    <h3 class="sidebar__title" style="color: #1da851;">Échanger directement</h3>
+                    <p style="font-size: var(--fs-xs); color: var(--text-medium); margin-bottom: var(--space-md);">
+                        Une question, un partage de réflexion ou un projet en vue ? Mon canal direct est ouvert sur WhatsApp.
+                    </p>
+                    <a href="https://wa.me/237683911717" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-heading); font-weight: var(--fw-bold); font-size: var(--fs-sm); color: #1da851; display: inline-flex; align-items: center; gap: 0.5rem;">
+                        +237 683 911 717 →
+                    </a>
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div>
+                    <span class="header__logo" style="display: block; margin-bottom: var(--space-md);">Merlin <span>SIMO</span></span>
+                    <p class="footer__text">
+                        Plateforme éditoriale consacrée à l'autonomie intellectuelle, à la pensée créative méthodique et à l'innovation au service de l'élévation humaine.
+                    </p>
+                    <p class="footer__text" style="font-style: italic; color: var(--gold);">
+                        « La créativité n'est pas un don. C'est une pratique. »
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer__title">Navigation</h4>
+                    <ul class="footer__links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="articles.html">Articles (20 essais)</a></li>
+                        <li><a href="boutique.html">Boutique & Ressources</a></li>
+                        <li><a href="a-propos.html">À propos de Merlin SIMO</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__title">Échange Direct</h4>
+                    <p class="footer__text">
+                        Disponible pour échanger sur vos réflexions, vos projets éditoriaux ou collaboratifs :
+                    </p>
+                    <p class="footer__contact">
+                        <a href="https://wa.me/237683911717" target="_blank" rel="noopener noreferrer">
+                            💬 WhatsApp : +237 683 911 717
+                        </a>
+                    </p>
+                    <p class="footer__contact" style="margin-top: 0.5rem;">
+                        <a href="mailto:merlinsimo2.0@gmail.com">
+                            ✉️ merlinsimo2.0@gmail.com
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© 2026 Merlin SIMO. Tous droits réservés. Conçu pour une lecture calme, sans publicité ni collecte de données.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

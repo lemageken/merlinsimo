@@ -1,0 +1,5 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+.wilddivine.com	TRUE	/	FALSE	1999999999	__cfduid	d8e715959c5ef9de131023f7dbba0ab6d1485289390
+.nightingale.com	TRUE	/	FALSE	1999999999	frontend	s92reigstf6o1lqt0slmfscu90
+
