@@ -596,9 +596,6 @@ function generateHubPageHtml() {
             <div class="container">
                 <div style="display: grid; grid-template-columns: 1fr; lg-grid-template-columns: 1.1fr 0.9fr; gap: var(--space-2xl); align-items: center;">
                     <div>
-                        <span class="card__category" style="background: var(--electric-blue); color: #fff; padding: 0.35rem 1rem; border-radius: var(--radius-full); font-size: var(--fs-xs); font-weight: var(--fw-bold); text-transform: uppercase; letter-spacing: 0.08em; display: inline-block; margin-bottom: var(--space-md);">
-                            Nouvelle Rubrique Éditoriale
-                        </span>
                         <h1 style="font-size: var(--fs-4xl); line-height: 1.15; margin-bottom: var(--space-md); color: var(--text-dark);">
                             DÉVELOPPEMENT DE L'INTELLIGENCE DE L'ENFANT
                         </h1>
@@ -951,9 +948,13 @@ if (fs.existsSync(sitemapPath)) {
   </url>\n`;
   }
 
+  // Update or insert child intelligence articles
   allEnfantsArticles.forEach(article => {
     const loc = `https://merlinsimo.netlify.app/articles/${article.slug}.html`;
-    if (!sitemapContent.includes(article.slug)) {
+    const regex = new RegExp(`(<loc>${loc}<\\/loc>\\s*<lastmod>)[^<]+(<\\/lastmod>)`);
+    if (regex.test(sitemapContent)) {
+      sitemapContent = sitemapContent.replace(regex, `$1${article.date}$2`);
+    } else if (!sitemapContent.includes(article.slug)) {
       newEntries += `  <url>
     <loc>${loc}</loc>
     <lastmod>${article.date}</lastmod>
