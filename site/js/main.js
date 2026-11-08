@@ -290,6 +290,86 @@
   }
 
   /* --------------------------------------------------------------------------
+     10. SOCIAL SHARING & CLIPBOARD COPY
+     -------------------------------------------------------------------------- */
+  function copyToClipboard(text, cb) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(cb).catch(function () {
+        fallbackCopy(text, cb);
+      });
+    } else {
+      fallbackCopy(text, cb);
+    }
+  }
+
+  function fallbackCopy(text, cb) {
+    var textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-9999px';
+    textArea.style.top = '0';
+    textArea.style.opacity = '0';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+      document.execCommand('copy');
+      if (cb) cb();
+    } catch (err) {
+      console.error('Fallback copy failed', err);
+    }
+    document.body.removeChild(textArea);
+  }
+
+  window.copyArticleLink = function (btn, url) {
+    var targetUrl = url || window.location.href.split('#')[0];
+    var originalHTML = btn.innerHTML;
+    copyToClipboard(targetUrl, function () {
+      btn.classList.add('btn-share--copied');
+      btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span>Lien copié !</span>';
+      setTimeout(function () {
+        btn.classList.remove('btn-share--copied');
+        btn.innerHTML = originalHTML;
+      }, 2500);
+    });
+  };
+
+  function initSocialSharing() {
+    // Popup window for desktop social shares
+    document.querySelectorAll('.btn-share:not(.btn-share--whatsapp):not(.btn-share--copy):not(.btn-share--native)').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        var href = this.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('mailto:')) return;
+        if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+        e.preventDefault();
+        var width = 640;
+        var height = 520;
+        var left = Math.max(0, (window.innerWidth - width) / 2 + window.screenX);
+        var top = Math.max(0, (window.innerHeight - height) / 2 + window.screenY);
+        window.open(href, 'share-dialog', 'width=' + width + ',height=' + height + ',top=' + top + ',left=' + left + ',toolbar=0,status=0,menubar=0');
+      });
+    });
+
+    // Native Web Share API on mobile
+    if (navigator.share) {
+      document.querySelectorAll('.btn-share--native').forEach(function (btn) {
+        btn.style.display = 'inline-flex';
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          var shareBar = this.closest('.article-share-bar') || this.closest('.social-share');
+          var title = (shareBar && shareBar.getAttribute('data-article-title')) || document.title;
+          var url = (shareBar && shareBar.getAttribute('data-article-url')) || window.location.href;
+          navigator.share({
+            title: title,
+            text: title + ' - par Merlin SIMO',
+            url: url
+          }).catch(function () {});
+        });
+      });
+    }
+  }
+
+  /* --------------------------------------------------------------------------
      INIT ON DOM READY
      -------------------------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {
@@ -302,5 +382,6 @@
     initTOCTracking();
     initLazyLoading();
     initFilterTabs();
+    initSocialSharing();
   });
 })();
