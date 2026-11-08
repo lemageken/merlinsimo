@@ -1934,60 +1934,190 @@ h4 { font-size: var(--fs-lg); }
   pointer-events: none;
 }
 
-/* Social Share Bar */
+/* ==========================================================================
+   SOCIAL SHARING BAR & BUTTONS
+   ========================================================================== */
+.article-share-bar,
 .social-share {
+  margin: var(--space-2xl) 0;
+  padding: var(--space-lg) var(--space-xl);
+  background: linear-gradient(135deg, rgba(0, 186, 199, 0.05) 0%, rgba(248, 250, 252, 0.95) 100%);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(0, 186, 199, 0.25);
+  box-shadow: 0 4px 20px -2px rgba(10, 25, 47, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.article-share-bar__header,
+.social-share__header {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin: var(--space-2xl) 0;
-  padding: var(--space-md);
-  background: #f8fafc;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border);
+  justify-content: space-between;
   flex-wrap: wrap;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  padding-bottom: 0.6rem;
 }
+
+.article-share-bar__title,
 .social-share__label {
-  font-size: var(--fs-xs);
   font-weight: 700;
-  color: var(--text-medium);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-right: 0.5rem;
-}
-.share-btn {
+  font-size: var(--fs-sm);
+  color: var(--text-dark);
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
+  margin: 0;
+}
+
+.article-share-bar__sub {
+  font-size: var(--fs-xs);
+  color: var(--text-medium);
+  font-style: italic;
+}
+
+.share-buttons-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.btn-share,
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-full);
   font-size: var(--fs-xs);
   font-weight: 600;
   text-decoration: none;
-  transition: all var(--transition-fast);
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  user-select: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
 }
+
+.btn-share svg,
+.share-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.btn-share:hover,
+.share-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.btn-share:active,
+.share-btn:active {
+  transform: translateY(0);
+}
+
+/* Individual Platform Colors */
+.btn-share--whatsapp,
 .share-btn--whatsapp {
   background: #25d366;
   color: #ffffff !important;
 }
+.btn-share--whatsapp:hover,
 .share-btn--whatsapp:hover {
   background: #1eb956;
-  transform: translateY(-1px);
 }
+
+.btn-share--facebook,
 .share-btn--facebook {
   background: #1877f2;
   color: #ffffff !important;
 }
+.btn-share--facebook:hover,
 .share-btn--facebook:hover {
   background: #0d65d9;
-  transform: translateY(-1px);
 }
-.share-btn--twitter {
-  background: #0f1419;
+
+.btn-share--linkedin,
+.share-btn--linkedin {
+  background: #0a66c2;
   color: #ffffff !important;
 }
+.btn-share--linkedin:hover,
+.share-btn--linkedin:hover {
+  background: #084e96;
+}
+
+.btn-share--x,
+.btn-share--twitter,
+.share-btn--twitter {
+  background: #000000;
+  color: #ffffff !important;
+}
+.btn-share--x:hover,
+.btn-share--twitter:hover,
 .share-btn--twitter:hover {
-  background: #272c30;
-  transform: translateY(-1px);
+  background: #222222;
+}
+
+.btn-share--telegram,
+.share-btn--telegram {
+  background: #229ed9;
+  color: #ffffff !important;
+}
+.btn-share--telegram:hover,
+.share-btn--telegram:hover {
+  background: #1b85b8;
+}
+
+.btn-share--copy,
+.share-btn--copy {
+  background: #ffffff;
+  color: var(--text-dark) !important;
+  border: 1px solid var(--border);
+}
+.btn-share--copy:hover,
+.share-btn--copy:hover {
+  background: #f0fdff;
+  border-color: var(--electric-blue);
+  color: var(--electric-blue-dark) !important;
+}
+
+.btn-share--copied,
+.share-btn--copied {
+  background: #10b981 !important;
+  color: #ffffff !important;
+  border-color: #10b981 !important;
+}
+
+.btn-share--native,
+.share-btn--native {
+  display: none; /* revealed via JS if navigator.share supported */
+  background: var(--electric-blue);
+  color: #ffffff !important;
+}
+.btn-share--native:hover,
+.share-btn--native:hover {
+  background: var(--electric-blue-dark);
+}
+
+/* Sidebar Mini Share Widget */
+.sidebar-share-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-top: var(--space-sm);
+}
+.sidebar-share-buttons .btn-share {
+  padding: 0.45rem 0.6rem;
+  font-size: 11px;
 }
 
 /* Callouts Pédagogiques */
