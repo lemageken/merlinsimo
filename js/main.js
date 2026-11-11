@@ -14,29 +14,62 @@
     const nav = document.querySelector('.nav');
     if (!hamburger || !nav) return;
 
-    hamburger.addEventListener('click', function () {
+    // Dynamically insert mobile menu footer if absent
+    if (!nav.querySelector('.nav__mobile-extra')) {
+      var extra = document.createElement('div');
+      extra.className = 'nav__mobile-extra';
+      extra.innerHTML = '<a href="https://wa.me/237683911717" target="_blank" rel="noopener noreferrer" class="nav__mobile-whatsapp"><i class="fab fa-whatsapp"></i> Échanger sur WhatsApp (+237 683 911 717)</a><div class="nav__mobile-badge">Merlin SIMO — L\'Atelier de l\'Esprit</div>';
+      nav.appendChild(extra);
+    }
+
+    function closeMenu() {
+      hamburger.setAttribute('aria-expanded', 'false');
+      nav.setAttribute('data-open', 'false');
+      document.body.style.overflow = '';
+    }
+
+    function openMenu() {
+      hamburger.setAttribute('aria-expanded', 'true');
+      nav.setAttribute('data-open', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    hamburger.addEventListener('click', function (e) {
+      e.stopPropagation();
       const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
-      hamburger.setAttribute('aria-expanded', String(!isOpen));
-      nav.setAttribute('data-open', String(!isOpen));
-      document.body.style.overflow = !isOpen ? 'hidden' : '';
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
-    // Close menu when a nav link is clicked
-    nav.querySelectorAll('.nav__link').forEach(function (link) {
+    // Close menu when any link inside nav is clicked
+    nav.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
-        hamburger.setAttribute('aria-expanded', 'false');
-        nav.setAttribute('data-open', 'false');
-        document.body.style.overflow = '';
+        closeMenu();
       });
+    });
+
+    // Close on click outside
+    document.addEventListener('click', function (e) {
+      if (nav.getAttribute('data-open') === 'true' && !nav.contains(e.target) && !hamburger.contains(e.target)) {
+        closeMenu();
+      }
     });
 
     // Close on Escape key
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && nav.getAttribute('data-open') === 'true') {
-        hamburger.setAttribute('aria-expanded', 'false');
-        nav.setAttribute('data-open', 'false');
-        document.body.style.overflow = '';
+        closeMenu();
         hamburger.focus();
+      }
+    });
+
+    // Close when window resized to desktop
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 768 && nav.getAttribute('data-open') === 'true') {
+        closeMenu();
       }
     });
   }
