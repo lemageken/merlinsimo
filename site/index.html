@@ -106,11 +106,12 @@
     <header class="header">
         <div class="container header__inner">
             <a href="index.html" class="header__logo"><img src="images/logo-transparent.png" alt="Emblème Merlin SIMO — L'Atelier de l'Esprit" class="header__logo-img"> Merlin <span>SIMO</span></a>
-            <nav class="nav" aria-label="Navigation principale">
+                                    <nav class="nav" aria-label="Navigation principale">
                 <ul class="nav__list">
                     <li class="nav__item"><a href="index.html" class="nav__link nav__link--active">Accueil</a></li>
                     <li class="nav__item"><a href="articles.html" class="nav__link">Articles</a></li>
                     <li class="nav__item"><a href="intelligence-enfant.html" class="nav__link">Intelligence Enfant</a></li>
+                    <li class="nav__item"><a href="secur-ia.html" class="nav__link">Secur.IA</a></li>
                     <li class="nav__item"><a href="boutique.html" class="nav__link">Boutique</a></li>
                     <li class="nav__item"><a href="a-propos.html" class="nav__link">À propos</a></li>
                     <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
@@ -184,6 +185,66 @@
                         </div>
                     </div>
                 </section>
+        <!-- Section Vitrine Secur.IA sur la Page d'Accueil -->
+        <section class="section securia-home-showcase" style="background: linear-gradient(135deg, #061420 0%, #0c2438 100%); color: #ffffff; padding: var(--space-3xl) 0; border-top: 3px solid var(--securia-gold); border-bottom: 3px solid var(--securia-green); position: relative; overflow: hidden;">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr; lg-grid-template-columns: 1.1fr 0.9fr; gap: var(--space-2xl); align-items: center; margin-bottom: var(--space-2xl);">
+                    <div>
+                        <div class="securia-badge-pill" style="border-color: var(--securia-green); color: #2ee587; background: rgba(0, 166, 81, 0.15);">
+                            <i class="fas fa-shield-alt"></i> Nouvelle Rubrique Majeure
+                        </div>
+                        <h2 style="font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.2; margin-bottom: var(--space-xs); font-family: var(--font-heading); color: #ffffff;">
+                            Secur.IA <span style="color: var(--securia-green);">–</span> L'Intelligence au Service de la Sécurité
+                        </h2>
+                        <div class="securia-motto" style="color: var(--securia-gold);">
+                            INFORMER <span class="dot-green">◆</span> ASSISTER <span class="dot-red">◆</span> PROTÉGER
+                        </div>
+                        <p style="font-size: var(--fs-md); line-height: 1.7; color: #d0e0ed; margin-bottom: var(--space-md);">
+                            Comment l’intelligence artificielle, la criminalistique prédictive et les outils d'assistance tactique transforment-ils l'action policière face aux cybermenaces, à la délinquance urbaine et au terrorisme transnational ?
+                        </p>
+                        <p style="font-size: var(--fs-sm); line-height: 1.6; color: #9ab4c7; margin-bottom: var(--space-lg);">
+                            Une série de <strong>10 articles de doctrine, de droit et de stratégie de terrain</strong>, adossée au projet <strong>SECUR.IA</strong> et à la plateforme citoyenne <strong>Pocam237</strong>, développés par Merlin SIMO avec la collaboration stratégique de M. ENGUENE ENGUENE Jean Albert.
+                        </p>
+                        <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+                            <a href="secur-ia.html" class="btn btn--primary" style="background: var(--securia-green); border-color: var(--securia-green);">
+                                <i class="fas fa-shield-alt"></i> Explorer la rubrique Secur.IA (10 articles)
+                            </a>
+                            <a href="articles/de-la-feuille-dechiree-au-policier-augmente-pourquoi-securia.html" class="btn btn--secondary" style="border-color: rgba(255,255,255,0.4); color: #ffffff;">
+                                Lire l'article manifeste <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <a href="secur-ia.html">
+                            <img src="images/securia/banner-secur-ia.jpg" alt="Secur.IA – Intelligence Artificielle et Sécurité Publique" style="width: 100%; max-width: 500px; border-radius: var(--radius-xl); border: 2px solid rgba(0, 166, 81, 0.4); box-shadow: 0 20px 40px rgba(0,0,0,0.5); transition: transform 0.3s ease;">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3 Articles Secur.IA à la Une -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-lg);">
+                    <div style="background: rgba(13, 34, 53, 0.85); border: 1px solid rgba(0, 166, 81, 0.3); border-radius: var(--radius-lg); padding: var(--space-lg);">
+                        <span style="font-size: 0.7rem; font-weight: 800; color: #2ee587; text-transform: uppercase;">Manifeste Secur.IA</span>
+                        <h3 style="font-size: var(--fs-md); color: #ffffff; margin: 0.5rem 0; line-height: 1.35;">De la feuille déchirée au policier augmenté : pourquoi Secur.IA</h3>
+                        <p style="font-size: var(--fs-xs); color: #bed2e4; line-height: 1.5; margin-bottom: var(--space-sm);">Genèse, doctrine opérationnelle et articulation stratégique avec l'application Pocam237 pour moderniser la sécurité publique.</p>
+                        <a href="articles/de-la-feuille-dechiree-au-policier-augmente-pourquoi-securia.html" style="font-size: var(--fs-xs); color: var(--securia-gold); font-weight: 700; text-decoration: none;">Lire l'article &rarr;</a>
+                    </div>
+                    <div style="background: rgba(13, 34, 53, 0.85); border: 1px solid rgba(0, 166, 81, 0.3); border-radius: var(--radius-lg); padding: var(--space-lg);">
+                        <span style="font-size: 0.7rem; font-weight: 800; color: #2ee587; text-transform: uppercase;">Police Judiciaire & PJ</span>
+                        <h3 style="font-size: var(--fs-md); color: #ffffff; margin: 0.5rem 0; line-height: 1.35;">Police judiciaire et IA : vitesse d'analyse et préservation des libertés</h3>
+                        <p style="font-size: var(--fs-xs); color: #bed2e4; line-height: 1.5; margin-bottom: var(--space-sm);">Analyse criminalistique, faisceaux d'indices et respect du Code de procédure pénale camerounais (Loi 2005/007).</p>
+                        <a href="articles/police-judiciaire-intelligence-artificielle-enquetes-criminelles.html" style="font-size: var(--fs-xs); color: var(--securia-gold); font-weight: 700; text-decoration: none;">Lire l'article &rarr;</a>
+                    </div>
+                    <div style="background: rgba(13, 34, 53, 0.85); border: 1px solid rgba(0, 166, 81, 0.3); border-radius: var(--radius-lg); padding: var(--space-lg);">
+                        <span style="font-size: 0.7rem; font-weight: 800; color: #2ee587; text-transform: uppercase;">Souveraineté Numérique</span>
+                        <h3 style="font-size: var(--fs-md); color: #ffffff; margin: 0.5rem 0; line-height: 1.35;">Souveraineté numérique et police de demain : stratégie pour le Cameroun</h3>
+                        <p style="font-size: var(--fs-xs); color: #bed2e4; line-height: 1.5; margin-bottom: var(--space-sm);">Pourquoi l'Afrique et le Cameroun ne doivent pas déléguer leurs serveurs régaliens : cloud souverain et cryptographie nationale.</p>
+                        <a href="articles/souverainete-numerique-police-demain-strategie-nationale-cameroun.html" style="font-size: var(--fs-xs); color: var(--securia-gold); font-weight: 700; text-decoration: none;">Lire l'article &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 
                 
                 <!-- Section Showcase : Développement de l'Intelligence de l'Enfant -->
