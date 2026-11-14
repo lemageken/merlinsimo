@@ -164,6 +164,16 @@ ARTICLES_CONFIG = {
     }
 }
 
+def clean_author_phrase(text):
+    """Remove occurrences of 'Merlin SIMO Concepteur de SECUR.IA et de Pocam237' and 'Concepteur de SECUR.IA et de Pocam237'."""
+    # Pattern: Merlin SIMO\nConcepteur de SECUR.IA et de Pocam237
+    t = re.sub(r'Merlin\s+SIMO\s*(\n|<br\s*/?>)?\s*Concepteur\s+de\s+SECUR\.IA\s+et\s+de\s+Pocam237', '', text, flags=re.IGNORECASE)
+    # Pattern: Concepteur de SECUR.IA et de Pocam237
+    t = re.sub(r'Concepteur\s+de\s+SECUR\.IA\s+et\s+de\s+Pocam237\s*(—\s*|–\s*|-\s*)?', '', t, flags=re.IGNORECASE)
+    # Pattern: Concepteur de SECUR.IA et Pocam237
+    t = re.sub(r'Concepteur\s+de\s+SECUR\.IA\s+et\s+Pocam237\s*(—\s*|–\s*|-\s*)?', '', t, flags=re.IGNORECASE)
+    return t.strip()
+
 def format_body_html(plist, aid):
     title = plist[0]['text']
     
@@ -179,7 +189,10 @@ def format_body_html(plist, aid):
                 in_body = True
                 body_paragraphs.append(p)
             else:
-                header_meta.append(txt)
+                # Clean author phrase from header meta
+                cleaned_meta = clean_author_phrase(txt)
+                if cleaned_meta:
+                    header_meta.append(cleaned_meta)
         else:
             body_paragraphs.append(p)
             
@@ -200,20 +213,27 @@ def format_body_html(plist, aid):
             txt.startswith('Contact :') or
             (txt.startswith('SECUR.IA') and 'Intelligence' in txt)
         ):
-            html_out.append(f'<div class="callout-box" style="margin-top: var(--space-2xl); margin-bottom: var(--space-xl); padding: var(--space-xl); background: rgba(0, 166, 81, 0.05); border-left: 4px solid #00a651; border-radius: var(--radius-md);">')
+            # Gather remaining signature lines, filtering out the redundant "Merlin SIMO Concepteur..." phrase
+            sig_lines = []
             while idx < total:
-                sig_raw = body_paragraphs[idx]['text']
-                sig_esc = html.escape(sig_raw).replace('\n', '<br>')
-                if 'Contact :' in sig_raw or 'Téléphone' in sig_raw or 'E-mail' in sig_raw:
-                    html_out.append(f'<p style="margin-top: var(--space-sm); font-size: 0.95rem; color: var(--primary-color);"><strong>{sig_esc}</strong></p>')
-                elif 'Monsieur ENGUENE ENGUENE Jean Albert' in sig_raw:
-                    html_out.append(f'<p style="margin: var(--space-xs) 0; font-size: 1rem; color: var(--text-dark);"><strong>{sig_esc}</strong></p>')
-                elif sig_raw.startswith('Merlin SIMO'):
-                    html_out.append(f'<p style="margin-bottom: var(--space-xs); font-size: 1.05rem; font-weight: 700; color: var(--text-dark);">{sig_esc}</p>')
-                else:
-                    html_out.append(f'<p style="margin-bottom: var(--space-xs); font-size: 0.95rem; color: var(--text-medium);">{sig_esc}</p>')
+                raw_line = body_paragraphs[idx]['text']
+                cleaned_line = clean_author_phrase(raw_line)
+                # If cleaned_line is empty or just "Merlin SIMO" with nothing else, skip it to avoid author repetition
+                if cleaned_line and cleaned_line.strip() != "Merlin SIMO":
+                    sig_lines.append(cleaned_line)
                 idx += 1
-            html_out.append('</div>')
+                
+            if sig_lines:
+                html_out.append(f'<div class="callout-box" style="margin-top: var(--space-2xl); margin-bottom: var(--space-xl); padding: var(--space-xl); background: rgba(0, 166, 81, 0.05); border-left: 4px solid #00a651; border-radius: var(--radius-md);">')
+                for s in sig_lines:
+                    s_esc = html.escape(s).replace('\n', '<br>')
+                    if 'Contact :' in s or 'Téléphone' in s or 'E-mail' in s:
+                        html_out.append(f'<p style="margin-top: var(--space-sm); font-size: 0.95rem; color: var(--primary-color);"><strong>{s_esc}</strong></p>')
+                    elif 'Monsieur ENGUENE ENGUENE Jean Albert' in s:
+                        html_out.append(f'<p style="margin: var(--space-xs) 0; font-size: 1rem; color: var(--text-dark);"><strong>{s_esc}</strong></p>')
+                    else:
+                        html_out.append(f'<p style="margin-bottom: var(--space-xs); font-size: 0.95rem; color: var(--text-medium);">{s_esc}</p>')
+                html_out.append('</div>')
             break
             
         # Check Level 3 Heading: "1.1. ", "3.2. ", etc.
@@ -277,6 +297,11 @@ def format_body_html(plist, aid):
             continue
             
         # Standard paragraph
+        # If the paragraph is solely a standalone repetitive author signature "Merlin SIMO\nConcepteur...", skip it
+        if clean_author_phrase(txt) == "" and len(txt) < 150:
+            idx += 1
+            continue
+            
         esc = html.escape(txt)
         html_out.append(f'<p style="margin-bottom: var(--space-md); line-height: 1.8; color: var(--text-dark);">{esc}</p>')
         idx += 1
@@ -474,7 +499,6 @@ def generate_article_page(aid):
                             <img src="../images/merlin-simo.jpg" alt="Merlin SIMO" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid #00a651;">
                             <div>
                                 <strong style="color: var(--text-dark); display: block; font-size: 0.95rem;">Merlin SIMO</strong>
-                                <span style="color: var(--text-light); font-size: 0.8rem;">Concepteur de SECUR.IA et de Pocam237</span>
                             </div>
                         </div>
                     </div>
@@ -519,11 +543,11 @@ def generate_article_page(aid):
                                 <img src="../images/merlin-simo.jpg" alt="Merlin SIMO" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #00a651;">
                                 <div>
                                     <h3 style="margin: 0; font-size: 1.15rem; font-family: var(--font-heading); color: var(--text-dark);">Merlin SIMO</h3>
-                                    <span style="font-size: var(--fs-xs); color: #00a651; font-weight: 700;">Concepteur de SECUR.IA et de Pocam237</span>
+                                    <span style="font-size: var(--fs-xs); color: var(--text-light);">Auteur & Chercheur indépendant</span>
                                 </div>
                             </div>
                             <p style="font-size: var(--fs-sm); line-height: 1.6; color: var(--text-medium); margin-bottom: var(--space-sm);">
-                                Spécialiste de l'intelligence artificielle appliquée à la sécurité et à la transformation numérique régalienne au Cameroun.
+                                Recherches et réflexions sur l'intelligence artificielle appliquée à la sécurité et à la transformation numérique au Cameroun.
                             </p>
                         </div>
                         <div style="border-top: 1px solid var(--border); md-border-top: none; md-border-left: 1px solid var(--border); padding-top: var(--space-md); md-padding-top: 0; md-padding-left: var(--space-lg);">
@@ -632,4 +656,4 @@ def generate_article_page(aid):
 for aid in range(1, 11):
     generate_article_page(aid)
 
-print("\nAll 10 Secur.IA articles generated successfully!")
+print("\nAll 10 Secur.IA articles updated cleanly without author repetitive titles!")
