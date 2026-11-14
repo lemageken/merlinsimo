@@ -14,14 +14,6 @@
     const nav = document.querySelector('.nav');
     if (!hamburger || !nav) return;
 
-    // Dynamically insert mobile menu footer if absent
-    if (!nav.querySelector('.nav__mobile-extra')) {
-      var extra = document.createElement('div');
-      extra.className = 'nav__mobile-extra';
-      extra.innerHTML = '<a href="https://wa.me/237683911717" target="_blank" rel="noopener noreferrer" class="nav__mobile-whatsapp"><i class="fab fa-whatsapp"></i> Échanger sur WhatsApp (+237 683 911 717)</a><div class="nav__mobile-badge">Merlin SIMO — L\'Atelier de l\'Esprit</div>';
-      nav.appendChild(extra);
-    }
-
     function closeMenu() {
       hamburger.setAttribute('aria-expanded', 'false');
       nav.setAttribute('data-open', 'false');
@@ -68,7 +60,7 @@
 
     // Close when window resized to desktop
     window.addEventListener('resize', function () {
-      if (window.innerWidth >= 768 && nav.getAttribute('data-open') === 'true') {
+      if (window.innerWidth >= 992 && nav.getAttribute('data-open') === 'true') {
         closeMenu();
       }
     });
@@ -126,6 +118,9 @@
      4. ACTIVE NAV LINK HIGHLIGHTING
      -------------------------------------------------------------------------- */
   function initActiveNavLink() {
+    // If an active link is already explicitly defined in the HTML, respect it
+    if (document.querySelector('.nav__link--active')) return;
+
     var currentPath = window.location.pathname;
     // Normalize: remove trailing slash, get filename
     var filename = currentPath.split('/').pop() || 'index.html';

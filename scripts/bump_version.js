@@ -17,13 +17,13 @@ allFiles.forEach(file => {
 
   // Bump style.css?v=...
   if (c.includes('style.css')) {
-    c = c.replace(/style\.css(\?v=[^"'\s>]+)?/g, 'style.css?v=16.0');
+    c = c.replace(/style\.css(\?v=[^"'\s>]+)?/g, 'style.css?v=17.0');
     changed = true;
   }
 
   // Bump main.js?v=...
   if (c.includes('main.js')) {
-    c = c.replace(/main\.js(\?v=[^"'\s>]+)?/g, 'main.js?v=16.0');
+    c = c.replace(/main\.js(\?v=[^"'\s>]+)?/g, 'main.js?v=17.0');
     changed = true;
   }
 
@@ -33,4 +33,4 @@ allFiles.forEach(file => {
   }
 });
 
-console.log(`Successfully updated cache-buster to v=16.0 in ${updated} HTML files!`);
+console.log(`Successfully updated cache-buster to v=17.0 in ${updated} HTML files!`);
